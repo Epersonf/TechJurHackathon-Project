@@ -1,4 +1,7 @@
+import { getTelegramKey } from "../text_states/LocalizationReader";
+
 enum State {
+  INITIAL,
   TYPE_CPF,
   MAIN_MENU
 }
@@ -8,15 +11,17 @@ export class Conversation {
   author: string;
   currentState: State = State.TYPE_CPF;
   history: State[] = [];
+  getKey: (a: string) => string;
 
-  constructor(id: string, author: string) {
+  constructor(id: string, author: string, getKey: (a: string) => string) {
     this.id = id;
     this.author = author;
-    this.setState(State.TYPE_CPF);
+    this.setState(State.INITIAL);
+    this.getKey = getKey;
   }
 
   sendInput(message: string): string {
-    return `Olá, ${this.author}, eu sou ${process.env.BOT_NAME}! Digite seu CPF para eu consultar seu registro na ABC Advocacia:`;
+    return this.getKey("ask_cpf");
   }
 
   setState(newState: State): void {

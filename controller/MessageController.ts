@@ -1,4 +1,5 @@
 import { Conversation } from "../conversation/Conversation";
+import { getTelegramKey } from "../text_states/LocalizationReader";
 
 type SendMessageFunction = (a: string) => void;
 
@@ -6,12 +7,20 @@ interface Dictionary<T> {
   [Key: string]: T;
 }
 
-const conversations: Dictionary<Conversation> = {};
+const getKeyFuncs: Dictionary<(a: string) => string>  = {
+  "Telegram": getTelegramKey
+};
 
-export function onReceiveMessage(id: string, author: string, message: string, sendMessage: SendMessageFunction): void {
+const activeConversations: Dictionary<Conversation> = {};
+
+export function onReceiveMessage(id: string, author: string, message: string, source: string, sendMessage: SendMessageFunction): void {
   console.log(`Received from ${author} this: ${message}`);
-  if (conversations[id] == undefined) {
-    conversations[id] = new Conversation(id, author);
+  if (activeConversations[id] == undefined) {
+    activeConversations[id] = new Conversation(id, author, getKeyFuncs[source]);
   }
-  sendMessage(conversations[id].sendInput(message));
+  sendMessage(activeConversations[id].sendInput(message)
+    .replace("%author", author)
+    .replace("%botName", process.env.BOT_NAME || "LawBot")
+    .replace("%firmName", process.env.FIRM_NAME || "ABC")
+  );
 }

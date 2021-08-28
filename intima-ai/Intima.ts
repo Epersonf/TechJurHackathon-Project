@@ -1,4 +1,4 @@
-import Intimaai from "@brainy-digital/intima.ai-sdk-node/index";
+import Intimaai from "@brainy-digital/intima.ai-sdk-node";
 
 export let intimaai: Intimaai;
 
