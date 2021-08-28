@@ -14,7 +14,7 @@ export function initializeBot(token: string): void {
     let buildName: string = from.first_name;
     if (from.last_name)
       buildName += " " + from.last_name;
-    onReceiveMessage(`${from.id}-Telegram`, buildName, content.message.text, (s: string) => content.reply(s));
+    onReceiveMessage(`${from.id}-Telegram`, buildName, content.message.text, "Telegram", (s: string) => content.reply(s));
 
     next();
   });

@@ -1,3 +1,13 @@
 {
-  "ask_cpf": "Olá, %author, eu sou %botName! Digite seu CPF para eu consultar seu registro na %firmName:"
+  "error": "Erro desconhecido, contate os administradores de %botName",
+  "salutation": "Olá, %author, eu sou %botName!", 
+  "ask_cpf": "Digite seu CPF para eu consultar seu registro na %firmName:",
+  "invalid_cpf": "CPF digitado inválido.",
+  "main_menu": "O que deseja fazer?\n1 - Ver processos em andamento.\n2 - Falar com um atendente",
+  "returning_main_menu": "Retornando ao menu principal...",
+  "found_you": "Certo, achamos seu registro aqui.",
+  "not_registered": "Não achei você em nosso registro",
+  "get_in_touch": "Ok, segue o numero de telefone: %phoneNumber",
+  "processes_list": "Segue a lista dos seus processos, para ver o andamento digite seu numero na lista: \n%processesList",
+  "progress_process": "Segundo nosso sistema, o andamento de seu processo é: %progress"
 }

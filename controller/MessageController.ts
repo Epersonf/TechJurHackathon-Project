@@ -21,6 +21,7 @@ export function onReceiveMessage(id: string, author: string, message: string, so
   sendMessage(activeConversations[id].sendInput(message)
     .replace("%author", author)
     .replace("%botName", process.env.BOT_NAME || "LawBot")
-    .replace("%firmName", process.env.FIRM_NAME || "ABC")
+    .replace("%firmName", process.env.FIRM_NAME || "Null")
+    .replace("%phoneNumber", process.env.PHONE_NUMBER || "Null")
   );
 }
