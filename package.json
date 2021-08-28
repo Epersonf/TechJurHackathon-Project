@@ -1,0 +1,19 @@
+{
+  "name": "lawbot",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/Epersonf/LawBot-Mockup",
+  "author": "Eperson <epersoncmxf@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run tsc index.ts",
+    "start": "yarn run ts-node index.ts",
+    "dev": "yarn run nodemon index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^16.6.2",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}

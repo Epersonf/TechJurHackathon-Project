@@ -1,1 +1,1 @@
-# TechJurHackathon-Project
+# LawBot-Mockup
